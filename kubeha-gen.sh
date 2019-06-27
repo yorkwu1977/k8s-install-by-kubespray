@@ -151,7 +151,7 @@ mkdir -p $HOME/.kube
 cp -f /etc/kubernetes/admin.conf ${HOME}/.kube/config
 
 sed -i 's!8.8.8.8!${CP0_IP}!g' calico.yaml | sed -i 's!192.168.0.0/16!${CIDR}!g' calico.yaml
-kubectl apply -f master/calico.yaml
+kubectl apply -f calico.yaml
 
 JOIN_CMD=`kubeadm token create --print-join-command`
 

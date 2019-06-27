@@ -1,6 +1,7 @@
 #!/bin/sh
 
 # 安装docker
+# 执行范围：所有主机
 
 yum install -y yum-utils device-mapper-persistent-data lvm2
 yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
@@ -16,7 +17,7 @@ cat > /etc/docker/daemon.json <<EOF
   "exec-opts": ["native.cgroupdriver=systemd"],
   "log-driver": "json-file",
   "log-opts": {
-  "max-size": "50m"
+    "max-size": "50m"
   },
     "storage-driver": "overlay2"
   }

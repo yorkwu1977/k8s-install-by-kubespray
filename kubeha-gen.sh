@@ -150,7 +150,8 @@ kubeadm init --config /etc/kubernetes/kubeadm-config.yaml
 mkdir -p $HOME/.kube
 cp -f /etc/kubernetes/admin.conf ${HOME}/.kube/config
 
-curl -fsSL https://raw.githubusercontent.com/yorkwu1977/k8s-install-v1.14.0/master/calico.yaml | sed "s!8.8.8.8!${CP0_IP}!g" | sed "s!192.168.0.0/16!${CIDR}!g" | kubectl apply -f -
+sed -i 's!8.8.8.8!${CP0_IP}!g' calico.yaml | sed -i 's!192.168.0.0/16!${CIDR}!g' calico.yaml
+kubectl apply -f master/calico.yaml
 
 JOIN_CMD=`kubeadm token create --print-join-command`
 
@@ -183,13 +184,13 @@ countryName                     = Country Name (2 letter code)
 countryName_value               = CN
 
 stateOrProvinceName             = State or Province Name (full name)
-stateOrProvinceName_value       = Beijing
+stateOrProvinceName_value       = Guangdong
 
 localityName                    = Locality Name (eg, city)
-localityName_value              = Haidian
+localityName_value              = Guanzhou
 
 organizationName                = Organization Name (eg, company)
-organizationName_value          = Channelsoft
+organizationName_value          = DG
 
 organizationalUnitName          = Organizational Unit Name (eg, section)
 organizationalUnitName_value    = R & D Department
@@ -197,15 +198,14 @@ organizationalUnitName_value    = R & D Department
 commonName                      = Common Name (eg, your name or your server\'s hostname)
 commonName_value                = *.multi.io
 
-
 emailAddress                    = Email Address
-emailAddress_value              = lentil1016@gmail.com
+emailAddress_value              = 2589179@qq.com
 """ > ~/ikube/tls/openssl.cnf
 openssl req -newkey rsa:4096 -nodes -config ~/ikube/tls/openssl.cnf -days 3650 -x509 -out ~/ikube/tls/tls.crt -keyout ~/ikube/tls/tls.key
 kubectl create -n kube-system secret tls ssl --cert ~/ikube/tls/tls.crt --key ~/ikube/tls/tls.key
-kubectl apply -f https://raw.githubusercontent.com/yorkwu1977/k8s-install-v1.14.0/master/traefik.yaml
-kubectl apply -f https://raw.githubusercontent.com/yorkwu1977/k8s-install-v1.14.0/master/metrics.yaml
-kubectl apply -f https://raw.githubusercontent.com/yorkwu1977/k8s-install-v1.14.0/master/kubernetes-dashboard.yaml
+kubectl apply -f traefik.yaml
+kubectl apply -f metrics.yaml
+kubectl apply -f kubernetes-dashboard.yaml
 
 echo "Plugin install finished."
 echo "Waiting for all pods into 'Running' status. You can press 'Ctrl + c' to terminate this waiting any time you like."

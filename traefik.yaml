@@ -54,12 +54,14 @@ data:
     [entryPoints]
       [entryPoints.http]
       address = ":80"
+        [entryPoints.http.redirect]
+        entryPoint = "https"
       [entryPoints.https]
       address = ":443"
         [entryPoints.https.tls]
           [[entryPoints.https.tls.certificates]]
-          CertFile = "/home/k8s/tls/tls.crt"
-          KeyFile = "/home/k8s/tls/tls.key"
+          CertFile = "ssl/tls.crt"
+          KeyFile = "ssl/tls.key"
 ---
 kind: DaemonSet
 apiVersion: extensions/v1beta1

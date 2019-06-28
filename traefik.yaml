@@ -60,8 +60,8 @@ data:
       address = ":443"
         [entryPoints.https.tls]
           [[entryPoints.https.tls.certificates]]
-          CertFile = "ssl/tls.crt"
-          KeyFile = "ssl/tls.key"
+          CertFile = "/ssl/tls.crt"
+          KeyFile = "/ssl/tls.key"
 ---
 kind: DaemonSet
 apiVersion: extensions/v1beta1

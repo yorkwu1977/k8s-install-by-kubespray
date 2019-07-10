@@ -1,0 +1,10 @@
+# Master节点所需images。根据tar文件load后，恢复image的真实tag
+
+docker tag a7e7fdbc5fee gcr.io/google-containers/hyperkube:v1.9.5 &&
+docker tag e96a297310fd quay.io/calico/node:v2.6.8 &&
+docker tag 4c4cb67d7a88 quay.io/calico/cni:v1.11.4 &&
+docker tag 46d3aace8bc6 quay.io/calico/ctl:v1.6.3 &&
+docker tag 498ffffcfd05 quay.io/coreos/etcd:v3.2.4 &&
+docker tag 99e59f495ffa gcr.io/google_containers/pause-amd64:3.0
+
+

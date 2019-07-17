@@ -2,5 +2,3 @@
 
 #### Introduction
 This is a guide for install k8s by kubeadm and kubespray。
-
-#### 

@@ -1,4 +1,13 @@
+#####
 # Worker节点所需images。根据tar文件load后，恢复image的真实tag
+# 镜像文件: https://pan.baidu.com/s/1CvXX8RndpkOshB_xeIuMDw 提取码: erp7 
+##### 
+
+### Step 1
+
+docker image load -i k8s-kubespray-1.14.8-Worker.tar
+
+### Step 2
 
 docker tag ae513a47849c nginx:1.13 &&
 docker tag a7e7fdbc5fee gcr.io/google-containers/hyperkube:v1.9.5 &&

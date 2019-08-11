@@ -27,5 +27,5 @@
     shell: cd /home && docker load -i k8s-repo-v1.14.0
     ignore_errors: True
   - name: exec shell
-    shell: cd /home && docker run --restart=always -d -p 80:5000 --name repo harbor.io:1180/system/k8s-repo:v1.14.0
+    shell: docker run --restart=always -d -p 80:5000 --name repo harbor.io:1180/system/k8s-repo:v1.14.0
     ignore_errors: True

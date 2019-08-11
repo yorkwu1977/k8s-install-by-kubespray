@@ -20,7 +20,7 @@ systemctl restart docker
 
 # 此处应当修改为registry所在机器的IP
 
-REGISTRY_HOST="192.168.206.186"
+REGISTRY_HOST="192.168.3.111"
 
 # 设置Hosts
 

@@ -26,10 +26,6 @@ net.bridge.bridge-nf-call-ip6tables = 1
 """ > /etc/sysctl.conf
 sysctl -p
 
-# 同步时间
-yum install -y ntpdate
-ntpdate -u ntp.api.bz
-
 # 确认内核版本后，开启IPVS
 uname -a
 cat > /etc/sysconfig/modules/ipvs.modules <<EOF

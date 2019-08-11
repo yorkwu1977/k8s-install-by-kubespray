@@ -1,0 +1,31 @@
+---
+- hosts: k8srepo
+  tasks:
+  - name: copy file
+    copy:
+      src: '{{ item.src }}'
+      dest: '{{ item.dest }}'
+    with_items:
+      - { src: '/home/1-preinstall-for-all.sh', dest: '/home/' }
+      - { src: '/home/2-install-docker-for-all.sh', dest: '/home/' }
+      - { src: '/home/3-config-registry-for-all.sh', dest: '/home/' }
+      - { src: '/home/docker-ce-18.09.8-3.el7.x86_64.rpm', dest: '/home/' } 
+      - { src: '/home/docker-ce-cli-18.09.8-3.el7.x86_64.rpm', dest: '/home/' }
+      - { src: '/home/containerd.io-1.2.6-3.3.el7.x86_64.rpm', dest: '/home/' }
+      - { src: '/home/k8s-repo-v1.14.0', dest: '/home/' } 
+      - { src: '/home/harbor-offline-installer-v1.8.1.tgz', dest: '/home/' } 
+  - name: exec shell
+    shell: cd /home && bash 1-preinstall-for-all.sh
+    ignore_errors: True
+  - name: exec shell
+    shell: cd /home && bash 2-install-docker-for-all.sh
+    ignore_errors: True
+  - name: exec shell
+    shell: cd /home && bash 3-config-registry-for-all.sh
+    ignore_errors: True
+  - name: exec shell
+    shell: cd /home && docker load -i k8s-repo-v1.14.0
+    ignore_errors: True
+  - name: exec shell
+    shell: cd /home && docker run --restart=always -d -p 80:5000 --name repo harbor.io:1180/system/k8s-repo:v1.14.0
+    ignore_errors: True

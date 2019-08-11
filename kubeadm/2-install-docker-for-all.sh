@@ -3,10 +3,7 @@
 # 安装docker
 # 执行范围：所有主机
 
-yum install -y yum-utils device-mapper-persistent-data lvm2
-yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
-yum makecache fast
-yum install -y docker-ce
+yum install -y docker-ce-18.09.8-3.el7.x86_64.rpm docker-ce-cli-18.09.8-3.el7.x86_64.rpm containerd.io-1.2.6-3.3.el7.x86_64.rpm
 
 # 编辑systemctl的Docker启动文件和配置文件
 

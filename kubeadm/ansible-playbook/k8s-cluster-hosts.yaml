@@ -1,0 +1,12 @@
+---
+- hosts: all
+  tasks:
+  - name: copy file
+    copy:
+      src: '{{ item.src }}'
+      dest: '{{ item.dest }}'
+    with_items:
+      - { src: '/home/allhosts', dest: '/home/allhosts' }
+  - name: exec shell
+    shell: cd /home && cat allhosts >> /etc/hosts 
+    ignore_errors: True

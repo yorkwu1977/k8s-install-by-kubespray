@@ -1,8 +1,0 @@
-# 创建集群信息文件
-
-CP0_IP=192.168.3.21     # K8s Master 01的IP。会替换calico.yaml里面的IP_AUTODETECTION_METHOD
-CP1_IP=192.168.3.22		# K8s Master 02的IP。
-CP2_IP=192.168.3.23		# K8s Master 03的IP。
-VIP=192.168.3.66        # 虚拟IP。不一定要占用一个真实虚拟机IP。
-NET_IF=ens33    		# 网卡名。通过ip link 查看实际的网卡名。
-CIDR=172.19.0.0/16    	# Calio的网络配置。会替换calico.yaml里面的CALICO_IPV4POOL_CIDR

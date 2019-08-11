@@ -3,10 +3,10 @@
 
 ## 说明：
 
-1，本安装大部分都是离线安装，除了4-install-k8s-for-MasterAndWorder.sh中如下组件需要使用yum源安装：
+a，本安装大部分都是离线安装，除了4-install-k8s-for-MasterAndWorder.sh中如下组件需要使用yum源安装：
 yum install -y socat keepalived ipvsadm conntrack
 
-2，如果使用Ansible批量操作，需要单独准备一台服务器。复制所有安装资源和ansible-playbook文件夹到Ansible服务器的/home目录。
+b，如果使用Ansible批量操作，需要单独准备一台服务器。复制所有安装资源和ansible-playbook文件夹到Ansible服务器的/home目录。
   - ansible-hosts: ansible的iventory文件的参考格式，给所有服务器分组。
   - k8s-repo-setup.yaml: 在K8s Rregistry上执行的脚本。
   - k8s-presintall.yaml: 在K8s Master和K8s Worker上执行的脚本。 

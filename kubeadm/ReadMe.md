@@ -14,15 +14,15 @@ b，如果使用Ansible批量操作，需要单独准备一台服务器。复制
 
 ## 1. 环境需求
 
-CentOS 7.3 +
-内核版本 5.0.4 +
+- CentOS 7.3 +
+- Linux内核版本 5.0.4 +
 
 ## 2. 定制内容
 
-a, 修改Cluster-info里面的IP，对应实际IP。
-b, 修改3-config-registry-for-all.sh里的【REGISTRY_HOST】为实际的IP。
-c, 修改ansible-hosts里的IP为实际IP, 并复制到/etc/ansible/hosts。(如果用Assible)
-d, 修改allhosts里的IP为实际IP，这里的内容会复制到所有服务器的/etc/hosts文件内。
+- a, 修改Cluster-info里面的IP，对应实际IP。
+- b, 修改3-config-registry-for-all.sh里的【REGISTRY_HOST】为实际的IP。
+- c, 修改ansible-hosts里的IP为实际IP, 并复制到/etc/ansible/hosts。(如果用Assible)
+- d, 修改allhosts里的IP为实际IP，这里的内容会复制到所有服务器的/etc/hosts文件内。
 
 ## 3. 准备安装资源 
 
